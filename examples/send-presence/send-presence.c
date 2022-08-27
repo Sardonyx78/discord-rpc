@@ -44,14 +44,12 @@ static void updateDiscordPresence()
         discordPresence.endTimestamp = time(0) + 5 * 60;
         discordPresence.largeImageKey = "canary-large";
         discordPresence.smallImageKey = "ptb-small";
-        discordPresence.partyId = "party1234";
-        discordPresence.partySize = 1;
-        discordPresence.partyMax = 6;
-        discordPresence.partyPrivacy = DISCORD_PARTY_PUBLIC;
-        discordPresence.matchSecret = "xyzzy";
-        discordPresence.joinSecret = "join";
-        discordPresence.spectateSecret = "look";
         discordPresence.instance = 0;
+
+        DiscordRichPresenceButton discordButton = {.label = "Discord", .url = "https://discord.com"};
+
+        discordPresence.buttons[0] = &discordButton;
+
         Discord_UpdatePresence(&discordPresence);
     }
     else {
