@@ -45,7 +45,7 @@ typedef struct DiscordRichPresence {
     const char* joinSecret;     /* max 128 bytes */
     const char* spectateSecret; /* max 128 bytes */
     int8_t instance;
-    const DiscordRichPresenceButton* buttons[1];
+    DiscordRichPresenceButton* buttons[2];
 } DiscordRichPresence;
 
 typedef struct DiscordUser {

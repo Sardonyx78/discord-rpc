@@ -165,6 +165,9 @@ size_t JsonWriteRichPresenceObj(char* dest,
                     int size = sizeof(presence->buttons) / sizeof(presence->buttons[0]);
 
                     for (size_t i = 0; i < size; i++) {
+                        if (presence->buttons[i] == NULL)
+                            continue;
+
                         WriteObject button(writer);
                         WriteOptionalString(writer, "label", presence->buttons[i]->label);
                         WriteOptionalString(writer, "url", presence->buttons[i]->url);
